@@ -177,6 +177,29 @@ final class MeetingAudioCapture: NSObject, ObservableObject {
         }
     }
 
+    /// Tear down the SFSpeechRecognizer (but keep the SCStream running) so the
+    /// user microphone can take over the system recognition slot. Buffers
+    /// arriving on the SCStream callback during this window are silently
+    /// dropped (recognitionRequest == nil).
+    func pauseRecognizer() {
+        debounceTimer?.invalidate()
+        debounceTimer = nil
+        recognitionRequest?.endAudio()
+        recognitionTask?.cancel()
+        recognitionTask = nil
+        recognitionRequest = nil
+        lastPartialText = ""
+        emittedPrefixForCurrentRequest = ""
+    }
+
+    /// Re-create the SFSpeechRecognizer and resume transcribing the SCStream
+    /// audio. Safe to call repeatedly; no-ops if not capturing.
+    func resumeRecognizer() {
+        guard isCapturing else { return }
+        guard recognitionTask == nil else { return }
+        setupSpeechRecognition()
+    }
+
     // MARK: - Speech recognition
 
     private func setupSpeechRecognition() {
@@ -234,22 +257,16 @@ final class MeetingAudioCapture: NSObject, ObservableObject {
                         self.lastError = "Speech error: \(error.localizedDescription)"
                     }
                     // The recognition task is now dead. If we're still
-                    // capturing (e.g. the user mic just preempted us), the
-                    // SCStream keeps appending PCM to a stale request and
-                    // produces nothing. Restart the recognizer so transcription
-                    // resumes automatically without requiring a Meeting Mode
-                    // toggle.
-                    guard self.isCapturing else { return }
+                    // capturing AND nothing else has already restarted the
+                    // recognizer (e.g. the BarView pause/resume hook), bring
+                    // it back so transcription resumes automatically.
+                    guard self.isCapturing, self.recognitionTask == nil else { return }
                     self.debounceTimer?.invalidate()
                     self.debounceTimer = nil
                     self.recognitionRequest?.endAudio()
-                    self.recognitionTask?.cancel()
-                    self.recognitionTask = nil
                     self.recognitionRequest = nil
-                    // Small delay so we don't immediately collide with whatever
-                    // preempted us (the system mic recognition task).
-                    try? await Task.sleep(nanoseconds: 400_000_000)
-                    if self.isCapturing {
+                    try? await Task.sleep(nanoseconds: 600_000_000)
+                    if self.isCapturing, self.recognitionTask == nil {
                         self.setupSpeechRecognition()
                     }
                 }

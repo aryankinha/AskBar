@@ -90,6 +90,21 @@ struct BarView: View {
         .onChange(of: meetingModeCapture.isCapturing) { _, _ in restartAutoTriggerLoop() }
         .onChange(of: autoTriggerEnabled) { _, _ in restartAutoTriggerLoop() }
         .onChange(of: autoTriggerInterval) { _, _ in restartAutoTriggerLoop() }
+        .onChange(of: speechManager.isRecording) { _, recording in
+            // Free up the system speech recognizer for the user mic, then
+            // hand it back to the meeting recognizer when dictation ends.
+            // Without this the meeting "Them" transcript silently dies after
+            // the first dictation pass.
+            if recording {
+                meetingModeCapture.pauseRecognizer()
+            } else {
+                // Small delay so the user-mic SFSpeechRecognizer fully tears
+                // down before we grab the slot back.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    meetingModeCapture.resumeRecognizer()
+                }
+            }
+        }
         .onChange(of: speechManager.transcript) { _, v in
             if !v.isEmpty { inputText = v }
         }
