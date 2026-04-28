@@ -1,0 +1,12 @@
+{
+  "/Users/aryankinha/Documents/Aryan/Project/AskBar/AskBar/AIProvider.swift" : {
+    "abi-baseline-json" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar.abi.json",
+    "const-values" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar-primary.swiftconstvalues",
+    "dependencies" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar-primary.d",
+    "diagnostics" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar-primary.dia",
+    "objc-header" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar-Swift.h",
+    "swiftdoc" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar.swiftdoc",
+    "swiftmodule" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar.swiftmodule",
+    "swiftsourceinfo" : "/Users/aryankinha/Documents/Aryan/Project/AskBar/build/DerivedData/Build/Intermediates.noindex/AskBar.build/Release/AskBar.build/Objects-normal/x86_64/AskBar.swiftsourceinfo"
+  }
+}

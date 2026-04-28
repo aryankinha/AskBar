@@ -1,0 +1,376 @@
+{
+  "source": "/Users/aryankinha/Documents/Aryan/Project/AskBar/AskBar/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "General",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Meeting",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "API Keys",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "About",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default Provider",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hotkey",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Microphone",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Provider",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "Toggle AskBar",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "⌘⇧Space",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable voice session shortcut",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Use ⌘⇧V to open AskBar, clear session, and start recording",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-stop microphone on silence",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stops recording automatically after ~1.5 seconds of silence",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-send when microphone stops",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "When recording ends, immediately send the transcribed prompt",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "Permissions",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 93
+        }
+      },
+      {
+        "comment": "",
+        "key": "Capture",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-respond",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 160
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-suggest on a timer",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "AskBar uses macOS Screen & System Audio Recording to listen to call audio. No screen pixels are read.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "Screen Recording permission required",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Screen Recording permission granted (or not yet requested)",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open Screen Recording Settings",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 106
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rolling buffer (context window)",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 131
+        }
+      },
+      {
+        "comment": "",
+        "key": "Listen to meeting audio",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "Captures audio from Zoom, Meet, Teams, Webex, Safari, Chrome.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "30 seconds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "60 seconds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "90 seconds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "120 seconds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Live transcript preview",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reply to each utterance",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "Whenever the speaker pauses, the AI replies inline in the conversation.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "Minimum 5 seconds. Lower values use more API credits.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Suggest a reply on a fixed interval",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 173
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sends the prompt below every N seconds while capturing.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 174
+        }
+      },
+      {
+        "comment": "",
+        "key": "Interval (seconds)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 180
+        }
+      },
+      {
+        "comment": "",
+        "key": "30",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 182
+        }
+      },
+      {
+        "comment": "",
+        "key": "Prompt sent on each trigger",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 191
+        }
+      },
+      {
+        "comment": "",
+        "key": "AskBar",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "Version 1.0",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "A native macOS menu-bar AI assistant.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 227
+        }
+      },
+      {
+        "comment": "",
+        "key": "GitHub",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 231
+        }
+      },
+      {
+        "comment": "",
+        "key": "API key",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 252
+        }
+      },
+      {
+        "comment": "",
+        "key": "Model",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 257
+        }
+      }
+    ]
+  },
+  "version": 1
+}

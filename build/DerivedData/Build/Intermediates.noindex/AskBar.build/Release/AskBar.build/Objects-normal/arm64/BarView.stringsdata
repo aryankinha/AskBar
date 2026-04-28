@@ -1,0 +1,192 @@
+{
+  "source": "/Users/aryankinha/Documents/Aryan/Project/AskBar/AskBar/BarView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Provider: %@ · %@",
+        "location": {
+          "startingColumn": 15,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "Meeting Mode is on. Click for options.",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "Configure Meeting Mode",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 266
+        }
+      },
+      {
+        "comment": "",
+        "key": "Send (↩)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 443
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop dictation",
+        "location": {
+          "startingColumn": 70,
+          "startingLine": 443
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start dictation",
+        "location": {
+          "startingColumn": 89,
+          "startingLine": 443
+        }
+      },
+      {
+        "comment": "",
+        "key": "Provider",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "Change models in Settings → API Keys",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 222
+        }
+      },
+      {
+        "comment": "",
+        "key": "Meeting Mode",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 288
+        }
+      },
+      {
+        "comment": "",
+        "key": "LIVE",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 292
+        }
+      },
+      {
+        "comment": "",
+        "key": "Listen to call audio",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-respond to each utterance",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 320
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reply each time the speaker pauses",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 322
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-suggest on a timer",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 333
+        }
+      },
+      {
+        "comment": "",
+        "key": "Send the suggestion prompt every N seconds",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 335
+        }
+      },
+      {
+        "comment": "",
+        "key": "Every",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 345
+        }
+      },
+      {
+        "comment": "",
+        "key": "seconds (min 5)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 351
+        }
+      },
+      {
+        "comment": "",
+        "key": "30",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 346
+        }
+      },
+      {
+        "comment": "",
+        "key": "Suggest a reply now",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 367
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld message%@",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 490
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy whole conversation",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 504
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear conversation",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 515
+        }
+      },
+      {
+        "comment": "",
+        "key": "Thinking…",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 547
+        }
+      }
+    ]
+  },
+  "version": 1
+}
