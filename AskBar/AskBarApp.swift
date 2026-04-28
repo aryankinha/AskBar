@@ -2,16 +2,24 @@
 //  AskBarApp.swift
 //  AskBar
 //
-//  Created by Aryan Kinha on 28/04/26.
-//
 
 import SwiftUI
+import AppKit
 
 @main
 struct AskBarApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Settings {
+            SettingsView()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        NSApplication.shared.windows.forEach { window in
+                            window.sharingType = .none
+                        }
+                    }
+                }
         }
     }
 }
