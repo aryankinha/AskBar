@@ -6,7 +6,7 @@
 import Foundation
 
 struct GeminiService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .gemini) else {
             throw AIServiceError.missingAPIKey(provider: "Gemini")
         }
@@ -21,7 +21,7 @@ struct GeminiService: AIServiceProtocol {
 
         let body: [String: Any] = [
             "systemInstruction": [
-                "parts": [["text": askBarSystemPrompt]]
+                "parts": [["text": systemPrompt]]
             ],
             "contents": [
                 ["parts": [["text": prompt]]]

@@ -8,7 +8,7 @@
 import Foundation
 
 struct NvidiaService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .nvidia) else {
             throw AIServiceError.missingAPIKey(provider: "NVIDIA")
         }
@@ -19,6 +19,6 @@ struct NvidiaService: AIServiceProtocol {
                                           apiKey: key,
                                           model: AIProvider.nvidia.selectedModel,
                                           extraHeaders: [:])
-        return try await svc.stream(prompt: prompt)
+        return try await svc.stream(prompt: prompt, systemPrompt: systemPrompt)
     }
 }

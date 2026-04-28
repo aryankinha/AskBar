@@ -13,13 +13,13 @@ extension Notification.Name {
 final class FloatingWindowController: NSObject, NSWindowDelegate {
     private let panel: FloatingPanel
     private let defaultWidth: CGFloat = 620
-    private let collapsedHeight: CGFloat = 56
-    private let expandedHeight: CGFloat = 400
+    private let collapsedHeight: CGFloat = 60
+    private let expandedHeight: CGFloat = 480
     private let positionKey = "barPosition"
     private var isExpanded: Bool = false
 
     override init() {
-        let initialFrame = NSRect(x: 0, y: 0, width: 620, height: 56)
+        let initialFrame = NSRect(x: 0, y: 0, width: 620, height: 60)
         self.panel = FloatingPanel(contentRect: initialFrame)
         self.panel.sharingType = .none
         super.init()
@@ -42,19 +42,51 @@ final class FloatingWindowController: NSObject, NSWindowDelegate {
     private func setExpanded(_ expanded: Bool) {
         guard expanded != isExpanded else { return }
         isExpanded = expanded
-        let newHeight = expanded ? expandedHeight : collapsedHeight
+        applyFrame(animated: true)
+    }
+
+    private func applyFrame(animated: Bool) {
+        let newHeight = isExpanded ? expandedHeight : collapsedHeight
         let oldFrame = panel.frame
         // Anchor to top edge so the bar stays visually pinned where it is.
-        let newOriginY = oldFrame.origin.y + (oldFrame.size.height - newHeight)
-        let newFrame = NSRect(x: oldFrame.origin.x,
-                              y: newOriginY,
-                              width: oldFrame.size.width,
-                              height: newHeight)
-        NSAnimationContext.runAnimationGroup { context in
-            context.duration = 0.25
-            context.allowsImplicitAnimation = true
-            panel.animator().setFrame(newFrame, display: true)
+        var newOriginY = oldFrame.origin.y + (oldFrame.size.height - newHeight)
+        var newOriginX = oldFrame.origin.x
+
+        // Clamp to screen so a downward expansion never spills off the bottom
+        // (or right) edge.
+        if let screen = screenContaining(point: oldFrame.origin) ?? NSScreen.main {
+            let visible = screen.visibleFrame
+            if newOriginY < visible.minY {
+                newOriginY = visible.minY + 4
+            }
+            if newOriginX + defaultWidth > visible.maxX {
+                newOriginX = visible.maxX - defaultWidth - 4
+            }
+            if newOriginX < visible.minX {
+                newOriginX = visible.minX + 4
+            }
         }
+
+        let newFrame = NSRect(x: newOriginX,
+                              y: newOriginY,
+                              width: defaultWidth,
+                              height: newHeight)
+        if animated {
+            NSAnimationContext.runAnimationGroup { context in
+                context.duration = 0.25
+                context.allowsImplicitAnimation = true
+                panel.animator().setFrame(newFrame, display: true)
+            }
+        } else {
+            panel.setFrame(newFrame, display: true)
+        }
+    }
+
+    private func screenContaining(point: NSPoint) -> NSScreen? {
+        for screen in NSScreen.screens where screen.visibleFrame.contains(point) {
+            return screen
+        }
+        return nil
     }
 
     private func restorePosition() {

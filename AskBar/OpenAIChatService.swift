@@ -13,7 +13,7 @@ struct OpenAICompatibleService {
     let model: String
     let extraHeaders: [String: String]
 
-    func stream(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func stream(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         var req = URLRequest(url: endpoint)
         req.httpMethod = "POST"
         req.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
@@ -26,7 +26,7 @@ struct OpenAICompatibleService {
             "model": model,
             "stream": true,
             "messages": [
-                ["role": "system", "content": askBarSystemPrompt],
+                ["role": "system", "content": systemPrompt],
                 ["role": "user", "content": prompt]
             ]
         ]
@@ -61,7 +61,7 @@ struct OpenAICompatibleService {
 }
 
 struct OpenAIService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .openai) else {
             throw AIServiceError.missingAPIKey(provider: "OpenAI")
         }
@@ -71,12 +71,12 @@ struct OpenAIService: AIServiceProtocol {
         let svc = OpenAICompatibleService(endpoint: url, apiKey: key,
                                           model: AIProvider.openai.selectedModel,
                                           extraHeaders: [:])
-        return try await svc.stream(prompt: prompt)
+        return try await svc.stream(prompt: prompt, systemPrompt: systemPrompt)
     }
 }
 
 struct GroqService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .groq) else {
             throw AIServiceError.missingAPIKey(provider: "Groq")
         }
@@ -86,12 +86,12 @@ struct GroqService: AIServiceProtocol {
         let svc = OpenAICompatibleService(endpoint: url, apiKey: key,
                                           model: AIProvider.groq.selectedModel,
                                           extraHeaders: [:])
-        return try await svc.stream(prompt: prompt)
+        return try await svc.stream(prompt: prompt, systemPrompt: systemPrompt)
     }
 }
 
 struct OpenRouterService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .openrouter) else {
             throw AIServiceError.missingAPIKey(provider: "OpenRouter")
         }
@@ -104,6 +104,6 @@ struct OpenRouterService: AIServiceProtocol {
                                             "HTTP-Referer": "https://askbar.app",
                                             "X-Title": "AskBar"
                                           ])
-        return try await svc.stream(prompt: prompt)
+        return try await svc.stream(prompt: prompt, systemPrompt: systemPrompt)
     }
 }

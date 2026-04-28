@@ -397,6 +397,7 @@
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AskBar needs mic access for voice input";
+				INFOPLIST_KEY_NSScreenCaptureUsageDescription = "AskBar uses screen capture to listen to your meeting audio so it can help you respond in real time.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "AskBar uses speech recognition to transcribe your voice queries";
 				INHIBIT_ALL_WARNINGS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
@@ -429,6 +430,7 @@
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AskBar needs mic access for voice input";
+				INFOPLIST_KEY_NSScreenCaptureUsageDescription = "AskBar uses screen capture to listen to your meeting audio so it can help you respond in real time.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "AskBar uses speech recognition to transcribe your voice queries";
 				INHIBIT_ALL_WARNINGS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";

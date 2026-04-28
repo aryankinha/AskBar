@@ -6,7 +6,7 @@
 import Foundation
 
 struct ClaudeService: AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error> {
         guard let key = AIServiceFactory.apiKey(for: .claude) else {
             throw AIServiceError.missingAPIKey(provider: "Claude")
         }
@@ -23,7 +23,7 @@ struct ClaudeService: AIServiceProtocol {
             "model": AIProvider.claude.selectedModel,
             "max_tokens": 1024,
             "stream": true,
-            "system": askBarSystemPrompt,
+            "system": systemPrompt,
             "messages": [["role": "user", "content": prompt]]
         ]
         req.httpBody = try JSONSerialization.data(withJSONObject: body)

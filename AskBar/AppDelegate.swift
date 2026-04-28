@@ -65,7 +65,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window.sharingType = .none
         window.title = "AskBar Settings"
         window.styleMask = [.titled, .closable]
-        window.setContentSize(NSSize(width: 520, height: 560))
+        window.setContentSize(NSSize(width: 600, height: 620))
         window.isReleasedWhenClosed = false
         window.center()
         self.settingsWindow = window

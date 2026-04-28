@@ -20,7 +20,13 @@ enum AIServiceError: LocalizedError {
 }
 
 protocol AIServiceProtocol {
-    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error>
+    func send(prompt: String, systemPrompt: String) async throws -> AsyncThrowingStream<String, Error>
+}
+
+extension AIServiceProtocol {
+    func send(prompt: String) async throws -> AsyncThrowingStream<String, Error> {
+        try await send(prompt: prompt, systemPrompt: askBarSystemPrompt)
+    }
 }
 
 enum AIServiceFactory {

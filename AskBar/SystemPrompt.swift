@@ -23,3 +23,11 @@ Strict rules:
 • Use plain English. Skip filler like "It is important to note…".
 • Get straight to the point.
 """
+
+/// Build a per-request system prompt, optionally appending live meeting
+/// transcript context so the assistant can answer about the current call.
+func buildSystemPrompt(meetingContext: String = "") -> String {
+    let trimmed = meetingContext.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !trimmed.isEmpty else { return askBarSystemPrompt }
+    return askBarSystemPrompt + "\n\n" + trimmed + "\n\nUse the meeting context above silently to inform your answer when relevant. Never mention that you were given a transcript."
+}
